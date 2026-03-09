@@ -1,0 +1,527 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>AI &amp; Data Science &middot; Sapthagiri NPS University</title>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:wght@300;400;500&family=DM+Mono:wght@400;500&display=swap"
+    rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+
+<body>
+
+  <!-- ════════════ NAVBAR ════════════ -->
+  <nav id="mainNav">
+    <a href="#hero" class="nav-logo-wrap">
+      <img src="images/college-logo.png" alt="Sapthagiri NPS University" />
+    </a>
+    <ul class="nav-links" id="navLinks">
+      <li><a href="#announcements">Notices</a></li>
+      <li><a href="#events">Events</a></li>
+      <li><a href="#gallery">Gallery</a></li>
+      <li><a href="#faculty">Faculty</a></li>
+      <li><a href="#about">About</a></li>
+      <li><a href="#contact">Contact</a></li>
+      <li><a href="#" class="nav-admin-btn" onclick="openLogin(event)">&#9881; Admin</a></li>
+    </ul>
+    <button class="hamburger" onclick="toggleNav()">
+      <span></span><span></span><span></span>
+    </button>
+  </nav>
+
+  <!-- ════════════ HERO ════════════ -->
+  <section id="hero">
+    <div class="hb1"></div>
+    <div class="hb2"></div>
+    <div class="hb3"></div>
+    <img src="images/college-logo.png" class="hero-logo-bg" alt="" />
+    <div class="hero-inner">
+      <div class="hero-eye">
+        <div class="eye-dot"></div>Department Portal &middot; Academic Year 2025&ndash;26
+      </div>
+      <h1 class="hero-title">
+        <span class="ht1">Artificial</span>
+        <span class="ht2">Intelligence &amp;</span>
+        <span class="ht3">Data Science</span>
+      </h1>
+      <p class="hero-desc">Shaping tomorrow&#39;s innovators at Sapthagiri NPS University &mdash; where cutting-edge AI
+        meets real-world impact.</p>
+      <div class="hero-ctas">
+        <a href="#events" class="btn-fill">View Events &rarr;</a>
+        <a href="#about" class="btn-outline">About Department</a>
+      </div>
+      <div class="hero-stats" id="heroStats">
+        <div class="sti">
+          <div class="sn" id="sS">0</div>
+          <div class="sl">Students</div>
+        </div>
+        <div class="sti">
+          <div class="sn" id="sF">0</div>
+          <div class="sl">Faculty</div>
+        </div>
+        <div class="sti">
+          <div class="sn" id="sE">0</div>
+          <div class="sl">Events/Year</div>
+        </div>
+        <div class="sti">
+          <div class="sn" id="sP">0</div>
+          <div class="sl">Projects</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ════════════ TICKER ════════════ -->
+  <div class="ticker-wrap">
+    <div class="ticker-track" id="tickerTrack"></div>
+  </div>
+
+  <!-- ════════════ ANNOUNCEMENTS ════════════ -->
+  <section id="announcements">
+    <div class="shead reveal">
+      <div class="stag">Latest Updates</div>
+      <h2 class="stitle">Notices &amp; Announcements</h2>
+      <p class="ssub">Stay up-to-date with department news, academic deadlines and important circulars.</p>
+    </div>
+    <div class="ann-grid">
+      <div class="nb reveal reveal-left">
+        <div class="nb-head">
+          <span class="nb-title">&#128204; Notice Board</span>
+          <span class="nb-cnt" id="nbCnt">0</span>
+        </div>
+        <div class="nb-scroll">
+          <ul id="noticeList" style="list-style:none"></ul>
+        </div>
+      </div>
+      <div class="feat-notices" id="featNotices"></div>
+    </div>
+  </section>
+
+  <!-- ════════════ EVENTS ════════════ -->
+  <section id="events">
+    <div class="shead reveal">
+      <div class="stag">Calendar</div>
+      <h2 class="stitle">Events &amp; Activities</h2>
+      <p class="ssub">Live countdowns, registration links, venue info &mdash; everything in one place.</p>
+    </div>
+    <div class="events-grid" id="eventsGrid"></div>
+  </section>
+
+  <!-- ════════════ GALLERY ════════════ -->
+  <section id="gallery">
+    <div class="shead reveal">
+      <div class="stag">Memories</div>
+      <h2 class="stitle">Photo Gallery</h2>
+      <p class="ssub">Moments from department events, workshops and student achievements.</p>
+    </div>
+    <div class="gallery-grid" id="galleryGrid"></div>
+  </section>
+
+  <!-- ════════════ FACULTY ════════════ -->
+  <section id="faculty">
+    <div class="shead reveal">
+      <div class="stag">Our Team</div>
+      <h2 class="stitle">Meet the Faculty</h2>
+      <p class="ssub">Expert educators and researchers guiding the next generation of AI innovators.</p>
+    </div>
+    <div class="faculty-grid" id="facultyGrid"></div>
+  </section>
+
+  <!-- ════════════ ABOUT ════════════ -->
+  <section id="about">
+    <div class="about-grid">
+      <div class="about-visual reveal reveal-left">
+        <div class="aimg-wrap">
+          <div class="aimg-ph" id="aboutImgPh" style="display:none">&#127963;</div>
+          <img src="images/college-building.jpg" alt="Sapthagiri NPS University Campus" id="aboutImg"
+            style="display:block" />
+        </div>
+        <div class="about-logo-badge"><img src="images/college-logo.png" alt="Logo" /></div>
+        <div class="about-float">
+          <div class="num">2023</div>
+          <div class="lbl">Est.</div>
+        </div>
+      </div>
+      <div class="reveal reveal-right delay-2">
+        <div class="stag">About Us</div>
+        <h2 class="stitle" id="aboutTitle">Pioneering AI &amp; Data Science Education</h2>
+        <div id="aboutBody">
+          <p>The Department of Artificial Intelligence and Data Science at Sapthagiri NPS University delivers
+            world-class education at the intersection of technology, innovation, and real-world problem solving.</p>
+          <p>Our curriculum equips students with cutting-edge skills in machine learning, deep learning, data analytics
+            and AI engineering &mdash; preparing them for tomorrow&#39;s digital economy.</p>
+          <p>With state-of-the-art labs, industry-aligned projects, and expert faculty, we create an environment where
+            curiosity meets capability.</p>
+        </div>
+        <div class="chips" id="aboutChips">
+          <span class="chip">&#129504; Machine Learning</span>
+          <span class="chip">&#128202; Data Analytics</span>
+          <span class="chip">&#129302; Deep Learning</span>
+          <span class="chip">&#9729;&#65039; Cloud AI</span>
+          <span class="chip">&#128302; Research</span>
+          <span class="chip">&#128161; Innovation</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ════════════ CONTACT ════════════ -->
+  <section id="contact">
+    <div class="shead center reveal">
+      <div class="stag">Reach Us</div>
+      <h2 class="stitle">Contact the Department</h2>
+      <p class="ssub">Have questions? Reach out to us anytime.</p>
+    </div>
+    <div class="contact-grid">
+      <div class="contact-cards" id="contactCards"></div>
+      <div class="contact-form reveal reveal-right delay-2">
+        <h3>Send a Message</h3>
+        <div class="fr2">
+          <div class="fg"><label>Name</label><input type="text" id="cName" placeholder="Your full name" /></div>
+          <div class="fg"><label>Email</label><input type="email" id="cEmail" placeholder="your@email.com" /></div>
+        </div>
+        <div class="fg"><label>Subject</label><input type="text" id="cSubject" placeholder="What is this about?" />
+        </div>
+        <div class="fg"><label>Message</label><textarea id="cMsg" placeholder="Your message..."></textarea></div>
+        <button class="btn-fill" onclick="submitContact()" style="width:100%;justify-content:center">Send Message
+          &rarr;</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- ════════════ FOOTER ════════════ -->
+  <footer>
+    <div class="footer-grid">
+      <div class="footer-brand reveal reveal-left">
+        <img src="images/college-logo.png" alt="Sapthagiri NPS University" />
+        <p>Department of AI &amp; Data Science<br />Sapthagiri NPS University, Bengaluru &ndash; 560057</p>
+      </div>
+      <div class="footer-col reveal delay-2">
+        <h4>Quick Links</h4>
+        <ul>
+          <li><a href="#announcements">Notices</a></li>
+          <li><a href="#events">Events</a></li>
+          <li><a href="#gallery">Gallery</a></li>
+          <li><a href="#faculty">Faculty</a></li>
+          <li><a href="#about">About</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>University</h4>
+        <ul>
+          <li><a href="https://snpsu.edu.in" target="_blank">Official Website</a></li>
+          <li><a href="https://snpsu.edu.in/examination/" target="_blank">Examination</a></li>
+          <li><a href="https://snpsu.edu.in/results/" target="_blank">Results</a></li>
+          <li><a href="https://admission.snpsu.edu.in" target="_blank">Admissions</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>&copy; 2025 Dept. of AI &amp; Data Science &middot; Sapthagiri NPS University</p>
+      <a href="https://snpsu.edu.in" target="_blank">snpsu.edu.in &#8599;</a>
+    </div>
+  </footer>
+
+  <!-- ════════════ LOGIN MODAL ════════════ -->
+  <div class="modal-bg" id="loginModal">
+    <div class="login-box">
+      <img src="images/college-logo.png" alt="Logo" />
+      <h2>Admin Login</h2>
+      <p>Department portal administration</p>
+      <div class="lockout-banner" id="lockoutBanner"></div>
+      <div class="login-err" id="loginErr">Incorrect credentials. Please try again.</div>
+      <div class="login-attempts" id="loginAttempts"></div>
+      <div class="lf"><label>Username</label><input type="text" id="lu" placeholder="admin" /></div>
+      <div class="lf"><label>Password</label><input type="password" id="lp"
+          placeholder="&bull;&bull;&bull;&bull;&bull;&bull;&bull;&bull;" onkeydown="if(event.key==='Enter')doLogin()" />
+      </div>
+      <button class="btn-fill" id="loginBtn" style="width:100%;justify-content:center;margin-top:8px"
+        onclick="doLogin()">Login &rarr;</button>
+
+      <button onclick="closeLogin()"
+        style="background:none;border:none;color:var(--mu);cursor:pointer;margin-top:12px;font-family:var(--fm);font-size:.7rem">Cancel</button>
+    </div>
+  </div>
+
+  <!-- ════════════ ADMIN PANEL ════════════ -->
+  <div class="modal-bg" id="adminModal">
+    <div class="admin-shell">
+      <div class="ap-topbar">
+        <h2>&#128295; Admin Panel &mdash; AI &amp; Data Science Dept.</h2>
+        <button class="ap-close" onclick="closeAdmin()">&#10005;</button>
+      </div>
+      <div class="ap-layout">
+        <!-- SIDEBAR -->
+        <div class="ap-sidebar">
+          <button class="ap-sb-btn active" onclick="swTab('tEv',this)"><span
+              class="ap-sb-icon">&#127919;</span>Events</button>
+          <button class="ap-sb-btn" onclick="swTab('tNot',this)"><span
+              class="ap-sb-icon">&#128226;</span>Notices</button>
+          <button class="ap-sb-btn" onclick="swTab('tGal',this)"><span
+              class="ap-sb-icon">&#128444;</span>Gallery</button>
+          <button class="ap-sb-btn" onclick="swTab('tFac',this)"><span
+              class="ap-sb-icon">&#128105;&#8205;&#127979;</span>Faculty</button>
+          <button class="ap-sb-btn" onclick="swTab('tAbt',this)"><span class="ap-sb-icon">&#128196;</span>About</button>
+          <button class="ap-sb-btn" onclick="swTab('tCon',this)"><span
+              class="ap-sb-icon">&#128236;</span>Contact</button>
+          <button class="ap-sb-btn" onclick="swTab('tSt',this)"><span class="ap-sb-icon">&#128202;</span>Stats</button>
+          <button class="ap-sb-btn" onclick="swTab('tPw',this)"><span
+              class="ap-sb-icon">&#128274;</span>Password</button>
+        </div>
+        <!-- CONTENT -->
+        <div class="ap-content">
+
+          <!-- EVENTS -->
+          <div class="ap-tc active" id="tEv">
+            <div class="ap-title">&#127919; Add New Event</div>
+            <p class="ap-sub">Fill in the details. Countdown timer and Register button appear automatically on the card.
+            </p>
+            <div class="ap-row">
+              <div class="ap-fg"><label>Event Title *</label><input type="text" id="evTitle"
+                  placeholder="e.g. AI Hackathon 2025" /></div>
+              <div class="ap-fg"><label>Date *</label><input type="date" id="evDate" /></div>
+            </div>
+            <div class="ap-row">
+              <div class="ap-fg"><label>Time</label><input type="time" id="evTime" /></div>
+              <div class="ap-fg"><label>Venue / Location</label><input type="text" id="evVenue"
+                  placeholder="e.g. Seminar Hall 2" /></div>
+            </div>
+            <div class="ap-row">
+              <div class="ap-fg"><label>Category</label>
+                <select id="evType">
+                  <option>Workshop</option>
+                  <option>Seminar</option>
+                  <option>Hackathon</option>
+                  <option>Cultural</option>
+                  <option>Sports</option>
+                  <option>Placement</option>
+                  <option>Guest Lecture</option>
+                  <option>Internship</option>
+                  <option>Conference</option>
+                  <option>Other</option>
+                </select>
+              </div>
+              <div class="ap-fg"><label>Event Photo</label><input type="file" id="evPhoto" accept="image/*"
+                  onchange="prevImg(this,'evPrev')" /></div>
+            </div>
+            <div class="ap-fg"><label>Description</label><textarea id="evDesc"
+                placeholder="Describe the event..."></textarea></div>
+            <div class="divider"></div>
+            <div class="ap-title" style="font-size:.9rem;border:none;padding:0;margin-bottom:.8rem">&#128279;
+              Registration Settings</div>
+            <div class="ap-row">
+              <div class="ap-fg">
+                <label>Google Form / Registration URL</label>
+                <input type="url" id="evRegUrl" placeholder="https://forms.gle/your-link" />
+                <div class="hint">Paste your Google Form link. Students click Register and it opens directly.</div>
+              </div>
+              <div class="ap-fg">
+                <label>Button Label</label>
+                <input type="text" id="evRegLabel" placeholder="&#128394; Register / RSVP" />
+              </div>
+            </div>
+            <div class="ap-row">
+              <div class="ap-fg"><label>Max Registrations (for bar)</label><input type="number" id="evMaxReg"
+                  placeholder="e.g. 80" /></div>
+              <div class="ap-fg"><label>Current Registrations</label><input type="number" id="evCurReg"
+                  placeholder="e.g. 45" /></div>
+            </div>
+            <div id="evPrev" style="margin-bottom:12px"></div>
+            <button class="btn-sv" onclick="addEvent()">+ Add Event</button>
+            <div class="divider"></div>
+            <div class="ap-title" style="font-size:.9rem;border:none;padding:0;margin-bottom:.8rem">All Events (<span
+                id="evCnt">0</span>)</div>
+            <ul class="ap-list" id="adminEvList"></ul>
+          </div>
+
+          <!-- NOTICES -->
+          <div class="ap-tc" id="tNot">
+            <div class="ap-title">&#128226; Add New Notice</div>
+            <p class="ap-sub">Notices appear on the scrollable notice board and featured cards.</p>
+            <div class="ap-row">
+              <div class="ap-fg"><label>Notice Text *</label><input type="text" id="notText"
+                  placeholder="e.g. Internal Assessment on March 20" /></div>
+              <div class="ap-fg"><label>Date</label><input type="date" id="notDate" /></div>
+            </div>
+            <div class="ap-fg"><label>Tag</label>
+              <select id="notTag">
+                <option>Academic</option>
+                <option>Exam</option>
+                <option>Event</option>
+                <option>Holiday</option>
+                <option>Placement</option>
+                <option>Important</option>
+                <option>General</option>
+              </select>
+            </div>
+            <button class="btn-sv" onclick="addNotice()">+ Post Notice</button>
+            <div class="divider"></div>
+            <div class="ap-title" style="font-size:.9rem;border:none;padding:0;margin-bottom:.8rem">All Notices</div>
+            <ul class="ap-list" id="adminNotList"></ul>
+          </div>
+
+          <!-- GALLERY -->
+          <div class="ap-tc" id="tGal">
+            <div class="ap-title">&#128444; Add Gallery Photo</div>
+            <p class="ap-sub">Photos appear in the masonry gallery grid.</p>
+            <div class="ap-row">
+              <div class="ap-fg"><label>Caption *</label><input type="text" id="galCap"
+                  placeholder="e.g. Hackathon 2024 Winners" /></div>
+              <div class="ap-fg"><label>Photo</label><input type="file" id="galPhoto" accept="image/*"
+                  onchange="prevImg(this,'galPrev')" /></div>
+            </div>
+            <div id="galPrev" style="margin-bottom:12px"></div>
+            <button class="btn-sv" onclick="addGallery()">+ Add Photo</button>
+            <div class="divider"></div>
+            <div class="ap-title" style="font-size:.9rem;border:none;padding:0;margin-bottom:.8rem">All Photos</div>
+            <ul class="ap-list" id="adminGalList"></ul>
+          </div>
+
+          <!-- FACULTY -->
+          <div class="ap-tc" id="tFac">
+            <div class="ap-title">&#128105;&#8205;&#127979; Add Faculty Member</div>
+            <p class="ap-sub">Add as many faculty members as needed.</p>
+            <div class="ap-row">
+              <div class="ap-fg"><label>Full Name *</label><input type="text" id="facName"
+                  placeholder="Dr. / Prof. Full Name" /></div>
+              <div class="ap-fg"><label>Designation *</label><input type="text" id="facRole"
+                  placeholder="e.g. Assistant Professor" /></div>
+            </div>
+            <div class="ap-row">
+              <div class="ap-fg"><label>Specialization</label><input type="text" id="facSpec"
+                  placeholder="e.g. Deep Learning, NLP" /></div>
+              <div class="ap-fg"><label>Photo</label><input type="file" id="facPhoto" accept="image/*"
+                  onchange="prevImg(this,'facPrev')" /></div>
+            </div>
+            <div id="facPrev" style="margin-bottom:12px"></div>
+            <button class="btn-sv" onclick="addFaculty()">+ Add Faculty</button>
+            <div class="divider"></div>
+            <div class="ap-title" style="font-size:.9rem;border:none;padding:0;margin-bottom:.8rem">All Faculty (<span
+                id="facCnt">0</span>)</div>
+            <ul class="ap-list" id="adminFacList"></ul>
+          </div>
+
+          <!-- ABOUT -->
+          <div class="ap-tc" id="tAbt">
+            <div class="ap-title">&#128196; Edit About Section</div>
+            <div class="ap-fg"><label>Title</label><input type="text" id="aTitle" /></div>
+            <div class="ap-fg"><label>Paragraph 1</label><textarea id="aP1" rows="3"></textarea></div>
+            <div class="ap-fg"><label>Paragraph 2</label><textarea id="aP2" rows="3"></textarea></div>
+            <div class="ap-fg"><label>Paragraph 3</label><textarea id="aP3" rows="3"></textarea></div>
+            <div class="ap-fg"><label>Tags (comma separated with emoji)</label><input type="text" id="aTags" /></div>
+            <div class="ap-fg"><label>Department Photo</label><input type="file" id="aPhoto" accept="image/*"
+                onchange="prevImg(this,'aPrev')" /></div>
+            <div id="aPrev" style="margin-bottom:12px"></div>
+            <button class="btn-sv" onclick="saveAbout()">&#128190; Save About</button>
+          </div>
+
+          <!-- CONTACT -->
+          <div class="ap-tc" id="tCon">
+            <div class="ap-title">&#128236; Edit Contact Info</div>
+            <div class="ap-row">
+              <div class="ap-fg"><label>Address</label><textarea id="ctAddr" rows="3"></textarea></div>
+              <div class="ap-fg"><label>Phone</label><input type="text" id="ctPhone" /></div>
+            </div>
+            <div class="ap-row">
+              <div class="ap-fg"><label>Email</label><input type="text" id="ctEmail" /></div>
+              <div class="ap-fg"><label>Office Hours</label><input type="text" id="ctHours" /></div>
+            </div>
+            <button class="btn-sv" onclick="saveContact()">&#128190; Save Contact</button>
+          </div>
+
+          <!-- STATS -->
+          <div class="ap-tc" id="tSt">
+            <div class="ap-title">&#128202; Homepage Statistics</div>
+            <div class="stat-cards">
+              <div class="stat-card">
+                <div class="big" id="pS">&#8212;</div>
+                <div class="tiny">Students</div>
+              </div>
+              <div class="stat-card">
+                <div class="big" id="pF">&#8212;</div>
+                <div class="tiny">Faculty</div>
+              </div>
+              <div class="stat-card">
+                <div class="big" id="pE">&#8212;</div>
+                <div class="tiny">Events/Yr</div>
+              </div>
+              <div class="stat-card">
+                <div class="big" id="pP">&#8212;</div>
+                <div class="tiny">Projects</div>
+              </div>
+            </div>
+            <div class="ap-row">
+              <div class="ap-fg"><label>Students</label><input type="number" id="stS" /></div>
+              <div class="ap-fg"><label>Faculty</label><input type="number" id="stF" /></div>
+            </div>
+            <div class="ap-row">
+              <div class="ap-fg"><label>Events/Year</label><input type="number" id="stE" /></div>
+              <div class="ap-fg"><label>Projects</label><input type="number" id="stP" /></div>
+            </div>
+            <button class="btn-sv" onclick="saveStats()">&#128190; Save Stats</button>
+          </div>
+
+          <!-- PASSWORD -->
+          <div class="ap-tc" id="tPw">
+            <div class="ap-title">&#128274; Change Admin Password</div>
+            <p class="ap-sub">Password is stored as a secure hash (SHA-256). Nobody can read your plain-text password
+              &mdash; not even from DevTools.</p>
+            <div class="ap-fg"><label>Current Password</label><input type="password" id="pwC"
+                placeholder="Enter current password" /></div>
+            <div class="ap-fg"><label>New Password (min 8 chars)</label><input type="password" id="pwN"
+                placeholder="At least 8 characters" /></div>
+            <div class="ap-fg"><label>Confirm New Password</label><input type="password" id="pwCf"
+                placeholder="Re-enter new password" /></div>
+            <button class="btn-sv" onclick="changePw()">&#128274; Update Password</button>
+          </div>
+
+        </div><!-- end ap-content -->
+      </div><!-- end ap-layout -->
+    </div><!-- end admin-shell -->
+  </div>
+
+  <!-- ════════════ ROBOT CHATBOT ════════════ -->
+  <div id="robot-chatbot" class="chatbot-container">
+    <div class="chatbot-window" id="chatbotWindow">
+      <div class="chatbot-header">
+        <span>🤖 AI Assistant</span>
+        <button onclick="toggleChatbot()">✖</button>
+      </div>
+      <div class="chatbot-messages" id="chatbotMessages">
+        <div class="chat-msg bot-msg">Hello! I am the AI &amp; Data Science Dept robot. How can I help you today?</div>
+      </div>
+      <div class="chatbot-input">
+        <input type="text" id="chatInput" placeholder="Type a message..."
+          onkeydown="if(event.key==='Enter')sendMessage()" />
+        <button onclick="sendMessage()">Send</button>
+      </div>
+    </div>
+    <div class="robot-character" onclick="toggleChatbot()">
+      <div class="robot-body">
+        <div class="robot-head">
+          <div class="robot-eyes"></div>
+        </div>
+        <div class="robot-torso"></div>
+        <div class="robot-arms"></div>
+      </div>
+      <div class="robot-shadow"></div>
+    </div>
+  </div>
+
+  <!-- ════════════ LIGHTBOX ════════════ -->
+  <div class="lb" id="lb">
+    <button class="lb-x" onclick="closeLb()">&#10005;</button>
+    <img src="" id="lbImg" alt="" />
+  </div>
+
+  <!-- ════════════ TOAST ════════════ -->
+  <div class="toast" id="toast"></div>
+
+  <script src="app.js"></script>
+</body>
+
+</html>
